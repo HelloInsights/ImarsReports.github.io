@@ -1,0 +1,82 @@
+I apologize for misunderstanding your previous request. If you want to display each Google Sheets iframe in its corresponding menu item, you can modify the code like this:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IMARS REPORT</title>
+    <style>
+        /* ... (previous CSS styles) ... */
+
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+        
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to <span style="color: #ff9900;">IMARS REPORT</span></h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Website Orders</a></li>
+            <li><a href="#">Online Sales</a></li>
+            <li><a href="#">Offline Sales</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+   
+    <section id="website-orders">
+        <h2>Website Orders</h2>
+        <p>Your website orders content goes here...</p>
+    </section>
+    
+    <section id="online-sales">
+        <h2>Online Sales</h2>
+        <div class="iframe-container">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzgxEW4S1tMh16CZi5n00eWcrWEaARfypVk2mhq1XOrshelaTeJ9Y21NXt6QxVuP75rguKEg9KrRRv/pubhtml?gid=1955996288&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        </div>
+    </section>
+
+    <section id="offline-sales">
+        <h2>Offline Sales</h2>
+        <div class="iframe-container">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSIzBt3Fx47uqrGDsdfkt9uDATh4kgzcyeNJoZPXVhFXz6hKy6j09ka9Ck75FVUcjkMAIcVr-uoiJ8J/pubhtml?gid=1955996288&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 IMARS REPORT. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Add event listeners to menu links
+        document.querySelector('a[href="#website-orders"]').addEventListener('click', function () {
+            document.getElementById('website-orders').scrollIntoView();
+        });
+
+        document.querySelector('a[href="#online-sales"]').addEventListener('click', function () {
+            document.getElementById('online-sales').scrollIntoView();
+        });
+
+        document.querySelector('a[href="#offline-sales"]').addEventListener('click', function () {
+            document.getElementById('offline-sales').scrollIntoView();
+        });
+    </script>
+</body>
+</html>
+```
+
+This code separates each section with its corresponding Google Sheets iframe and adds JavaScript to scroll to the respective section when the menu items are clicked. The footer remains fixed at the bottom of the viewport.
